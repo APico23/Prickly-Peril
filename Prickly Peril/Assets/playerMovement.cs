@@ -11,7 +11,6 @@ public class playerMovement : MonoBehaviour
     public Vector2 maxPower;
 
     LineTrajectory lt;
-    bool canMove;
 
     Camera cam;
     Vector2 force;
@@ -24,20 +23,10 @@ public class playerMovement : MonoBehaviour
         lt = GetComponent<LineTrajectory>();
     }
 
-    public void OnCollisionEnter2D(Collision2D Collision)
-    {
-        if (Collision.gameObject.name == "floor")
-        {
-            canMove = true;
-        }
-    }
+   
 
     private void Update()
-    {
-         
-
-        if (canMove)
-        {
+    {       
             if (Input.GetMouseButtonDown(0))
             {
                 startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -59,10 +48,9 @@ public class playerMovement : MonoBehaviour
                 force = new Vector2(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y));
                 rb.AddForce(force * power, ForceMode2D.Impulse);
                 lt.endLine();
-                canMove = false;
             }
 
            
         }
-    }
+    
 }
