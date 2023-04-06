@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     {
         if(transform.position != target.position)
         {
-            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y + 5, transform.position.z);
 
             targetPosition.x = Mathf.Clamp(targetPosition.x, minPosition.x, maxPosition.x);
             targetPosition.y = Mathf.Clamp (targetPosition.y, minPosition.y, maxPosition.y);
@@ -34,7 +34,7 @@ public class CameraMovement : MonoBehaviour
             }
             else
             {
-                if (GetComponent<Camera>().orthographicSize > 5)
+                if (GetComponent<Camera>().orthographicSize > 10)
                 {
                     GetComponent<Camera>().orthographicSize -= 0.1f;
                 }

@@ -18,6 +18,8 @@ public class Notes : MonoBehaviour
 
     //Create actual floors
 
+    //Create a destructible floor that you can fly through before fighting king cactus
+
     //Create a sound effect when you hit a floor at a certain velocity
 
     //Make a main menu
